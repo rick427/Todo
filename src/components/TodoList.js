@@ -5,7 +5,7 @@ const TodoList = ({items, clearList, handleEdit, handleDelete}) => {
     return (
         <ul className="list-group my-5">
             <h3 className="text-capitalize text-center">todos</h3>
-              {items.map(item => <TodoItem 
+              {items && items.map(item => <TodoItem 
                  key={item.id} 
                  item={item} 
                  handleEdit={handleEdit}
