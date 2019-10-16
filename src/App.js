@@ -36,14 +36,16 @@ class App extends Component {
   }
 
   handleDelete = id => {
-    const filtered = this.state.items.filter(item => item.id !== id);
+    const {items} = this.state;
+    const filtered = items && items.filter(item => item.id !== id);
     this.setState({items: filtered});
     localStorage.setItem('todo', JSON.stringify(filtered));
   }
 
   handleEdit = id => {
-    const filtered = this.state.items.filter(item => item.id !== id);
-    const selected = this.state.items.find(item => item.id === id)
+    const {items} = this.state;
+    const filtered = items && items.filter(item => item.id !== id);
+    const selected = items && items.find(item => item.id === id)
     this.setState({id, items: filtered, title: selected.title, editItem: true});
   }
 
